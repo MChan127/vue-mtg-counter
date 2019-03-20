@@ -1,14 +1,43 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <div id="showMenuBtn" v-on:click="toggleShowMenu">{{showMenu ? "Hide Menu" : "Show Menu"}}</div> <img alt="Vue logo" src="@/assets/logo.png">
+    <Menu :show="showMenu" :close-menu="closeMenu" />
     <router-view/>
   </div>
 </template>
 
+<script lang="ts">
+  import {Component, Vue} from "vue-property-decorator";
+  import Menu from "@/components/Menu.vue";
+
+  @Component({
+    components: {
+      Menu,
+    },
+  })
+  export default class App extends Vue {
+    public showMenu: boolean = false;
+
+    public data() {
+      return {
+        showMenu: false,
+      };
+    }
+
+    public toggleShowMenu() {
+      this.showMenu = !this.showMenu;
+    }
+
+    public closeMenu() {
+      this.showMenu = false;
+    }
+  }
+</script>
+
 <style lang="scss">
+body {
+  margin: 15px 0 0 0;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -25,5 +54,8 @@
       color: #42b983;
     }
   }
+}
+#showMenuBtn {
+  cursor: pointer;
 }
 </style>
