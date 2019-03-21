@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="showMenuBtn" v-on:click="toggleShowMenu">{{showMenu ? "Hide Menu" : "Show Menu"}}</div> <img alt="Vue logo" src="@/assets/logo.png">
+    <div id="showMenuBtn" v-on:click="toggleShowMenu">{{showMenu ? "Hide Menu" : "Show Menu"}}</div> <img alt="LiVue Counter Logo" src="@/assets/livue_counter_logo.png" id="mainLogo">
     <Menu :show="showMenu" :close-menu="closeMenu" />
     <router-view/>
   </div>
@@ -57,5 +57,9 @@ body {
 }
 #showMenuBtn {
   cursor: pointer;
+}
+#mainLogo {
+  height: 150px;
+  width: auto;
 }
 </style>
