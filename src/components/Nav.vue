@@ -1,6 +1,6 @@
 <template>
-  <transition name="menu">
-    <div id="menu" v-if="show">
+  <transition name="nav">
+    <div id="nav" v-if="show">
       <a v-on:click="routeTo('home')">Home</a>
       <a v-on:click="routeTo('about')">About</a>
     </div>
@@ -12,24 +12,24 @@
   import router from "@/router";
 
   @Component
-  export default class Menu extends Vue {
+  export default class Nav extends Vue {
     @Prop(Boolean) private readonly show!: boolean;
-    @Prop(Function) private readonly closeMenu!: Function;
+    @Prop(Function) private readonly closeNav!: Function;
 
     @Watch('show')
     onChildChanged(val: boolean, oldVal: boolean) {
-      console.log('show menu changed', val, oldVal);
+      console.log('show nav changed', val, oldVal);
     }
 
     public routeTo(path: string): void {
-      this.closeMenu();
+      this.closeNav();
       router.push({path});
     }
   }
 </script>
 
 <style scoped lang="scss">
-  #menu {
+  #nav {
     position: absolute;
     top: 0;
     height: 100vh;
@@ -47,6 +47,7 @@
       display: block;
       text-decoration: none;
       background-color: #47a447;
+      text-align: center;
 
       transition: all .3s;
 
@@ -56,13 +57,13 @@
     }
   }
 
-  .menu-enter-active, .menu-leave-active {
+  .nav-enter-active, .nav-leave-active {
     transition: left .3s;
   }
-  .menu-leave, .menu-enter-to {
+  .nav-leave, .nav-enter-to {
     left: 0;
   }
-  .menu-enter, .menu-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  .nav-enter, .nav-leave-to /* .fade-leave-active below version 2.1.8 */ {
     left: -315px;
   }
 </style>
