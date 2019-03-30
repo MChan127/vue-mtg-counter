@@ -14,12 +14,12 @@
   @Component
   export default class Nav extends Vue {
     @Prop(Boolean) private readonly show!: boolean;
-    @Prop(Function) private readonly closeNav!: Function;
+    @Prop(Function) private readonly closeNav!: () => void;
 
-    @Watch('show')
+    /*@Watch('show')
     onChildChanged(val: boolean, oldVal: boolean) {
       console.log('show nav changed', val, oldVal);
-    }
+    }*/
 
     public routeTo(path: string): void {
       this.closeNav();
