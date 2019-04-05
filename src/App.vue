@@ -188,6 +188,18 @@
     color: #2c3e50;
     width: 50vw;
     margin: 0 auto;
+
+    @media only screen and (max-width: 991px) {
+      width: 75vw;
+    }
+    @media only screen and (max-width: 767px) {
+      width: 90vw;
+    }
+    @media only screen and (max-width: 480px) {
+      width: 100vw;
+    }
+
+    padding-bottom: 35px;
   }
 
   /*#nav {
@@ -214,6 +226,11 @@
     #mainLogo {
       height: 150px;
       width: auto;
+
+      @media only screen and (max-width: 480px) {
+        width: 100vw;
+        height: auto;
+      }
     }
   }
 </style>

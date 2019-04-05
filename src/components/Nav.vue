@@ -3,6 +3,7 @@
     <div id="nav" v-if="show">
       <a v-on:click="routeTo('home')">Home</a>
       <a v-on:click="routeTo('about')">About</a>
+      <a id="closeMenuBtn" v-on:click="closeNav()">Close Menu</a>
     </div>
   </transition>
 </template>
@@ -55,6 +56,14 @@
         background-color: #4FC93F;
       }
     }
+
+    /*#closeMenuBtn {
+      display: none;
+
+      @media only screen and (max-width: 480px) {
+        display: block;
+      }
+    }*/
   }
 
   .nav-enter-active, .nav-leave-active {

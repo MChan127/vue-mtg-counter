@@ -2,19 +2,19 @@
   <div class="home">
     <b-container>
       <b-row>
-        <b-col col-sm="4">
+        <b-col md="4" sm="12" xs="12">
           <b-button class="menuBtn" variant="outline-primary" v-on:click="gameMethods.newGame">
             <font-awesome-icon :icon="['fa', 'power-off']"/>
             New Game
           </b-button>
         </b-col>
-        <b-col col-sm="4">
+        <b-col md="4" sm="12" xs="12">
           <b-button class="menuBtn" variant="outline-primary" v-on:click="gameMethods.rollDice">
             <font-awesome-icon :icon="['fa', 'dice']"/>
             Roll
           </b-button>
         </b-col>
-        <b-col col-sm="4">
+        <b-col md="4" sm="12" xs="12">
           <b-button class="menuBtn" variant="outline-primary">
             <font-awesome-icon icon="scroll"/>
             History
@@ -35,7 +35,7 @@
       </b-row>
 
       <b-row>
-        <b-col cols="6" v-for="(life, index) in this.gameData.players">
+        <b-col sm="6" xs="12" v-for="(life, index) in this.gameData.players">
           <Player :player-num="index" :life-count="life" :update-life="gameMethods.updateLife" />
         </b-col>
       </b-row>
@@ -63,6 +63,10 @@
 <style lang="scss">
   .menuBtn {
     width: 100%;
+
+    @media only screen and (max-width: 767px) {
+      margin-bottom: 15px;
+    }
   }
   .diceRollResult {
     margin: 15px 0 0 0;
